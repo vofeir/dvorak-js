@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!--  Convert qwerty to dvorak while typing. Keyboard: Español latino.  -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teclado QWERTY a Dvorak</title>
+    <style>
+        body {
+            background-color: #404040;
+            color: white;
+            font-family: sans-serif;
+            padding: 20px;
+        }
+        #output {
+            border: 1px solid #ccc;
+            height: 85vh;
+            margin: auto;
+            overflow-y: auto;
+            padding: 10px;
+            width: 85ex;
+        }
+        #output:focus {outline: none;}
+    </style>
+</head>
+<body>
+    <div id="output" contenteditable="true"></div>
+    
+    <script>
+        
+        window.onload = function() {
+            document.getElementById('output').focus();
+          };
+        const qwertyToDvorak = {
+          'q': ".",
+          'w': ',',
+          'e': 'ñ',
+          'r': 'p',
+          't': 'y',
+          'y': 'f',
+          'u': 'g',
+          'i': 'c',
+          'o': 'h',
+          'p': 'l',
+          'a': 'a',
+          's': 'o',
+          'd': 'e',
+          'f': 'u',
+          'g': 'i',
+          'h': 'd',
+          'j': 'r',
+          'k': 't',
+          'l': 'n',
+          'ñ': 's',
+          'z': '-',
+          'x': 'q',
+          'c': 'j',
+          'v': 'k',
+          'b': 'x',
+          'n': 'b',
+          'm': 'm',
+          ',': 'w',
+          '.': 'v',
+          '-': 'z',
+          'Q': ":",
+          'W': ';',
+          'E': 'Ñ',
+          'R': 'P',
+          'T': 'Y',
+          'Y': 'F',
+          'U': 'G',
+          'I': 'C',
+          'O': 'H',
+          'P': 'L',
+          'A': 'A',
+          'S': 'O',
+          'D': 'E',
+          'F': 'U',
+          'G': 'I',
+          'H': 'D',
+          'J': 'R',
+          'K': 'T',
+          'L': 'N',
+          'Ñ': 'S',
+          'Z': '_',
+          'X': 'Q',
+          'C': 'J',
+          'V': 'K',
+          'B': 'X',
+          'N': 'B',
+          'M': 'M',
+          '<': 'W',
+          '>': 'V',
+          '_': 'Z',
+          'æ': 'á',
+          'ß': 'ó',
+          'ð': 'é',
+          'đ': 'ú',
+          'ŋ': 'í',
+          'Æ': 'Á',
+          'ẞ': 'Ó',
+          'Ð': 'É',
+          'ª': 'Ú',
+          'Ŋ': 'Í'
+        };
+
+        const outputDiv = document.getElementById('output');
+
+        outputDiv.addEventListener('keypress', function(event) {
+            const char = String.fromCharCode(event.charCode);
+            if (qwertyToDvorak[char]) {
+                event.preventDefault();
+                document.execCommand('insertText', false, qwertyToDvorak[char]);
+            }
+        });
+    </script>
+</body>
+</html>
