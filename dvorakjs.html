@@ -11,19 +11,33 @@
             color: white;
             font-family: sans-serif;
             padding: 20px;
+            transition: background-color 0.5s;
         }
         #output {
             border: 1px solid #ccc;
             height: 85vh;
             margin: auto;
             overflow-y: auto;
-            padding: 10px;
             width: 85ex;
         }
         #output:focus {outline: none;}
+        #shiftTheme {
+            padding-bottom: 10px;
+            margin-top: -20px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
+    <div id="shiftTheme">
+        <label>
+            <input type="radio" name="color" value="oscuro" onchange="changeColor(this)" checked> Oscuro
+        </label>
+        <label>
+            <input type="radio" name="color" value="claro" onchange="changeColor(this)"> Claro
+        </label>
+    </div>
+    
     <div id="output" contenteditable="true"></div>
     
     <script>
@@ -113,6 +127,16 @@
                 document.execCommand('insertText', false, qwertyToDvorak[char]);
             }
         });
+        
+        function changeColor(radio) {
+            if (radio.value === 'oscuro') {
+                document.body.style.backgroundColor = '#404040';
+                document.body.style.color = 'white';
+            } else if (radio.value === 'claro') {
+                document.body.style.backgroundColor = '#fbfbfb';
+                document.body.style.color = 'black';
+            }
+        }
     </script>
 </body>
 </html>
