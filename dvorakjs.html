@@ -4,13 +4,13 @@
     <!--  Convert qwerty to dvorak while typing. Keyboard: Español latino.  -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teclado QWERTY a Dvorak</title>
+    <title>Qwerty - Dvorak</title>
     <style>
         body {
             background-color: #404040;
             color: white;
             font-family: sans-serif;
-            padding: 20px;
+            padding: 5px;
             transition: background-color 0.5s;
             transition: color 0.5s;
         }
@@ -24,13 +24,14 @@
         }
         #output:focus {outline: none;}
         #shiftTheme {
-            padding-bottom: 10px;
-            margin-top: -20px;
+            margin-top: 10px;
             text-align: center;
         }
     </style>
 </head>
 <body>
+    <div id="output" contenteditable="true"></div>
+    
     <div id="shiftTheme">
         <label>
             <input type="radio" name="color" value="oscuro" onchange="changeColor(this)" checked> Oscuro
@@ -39,8 +40,6 @@
             <input type="radio" name="color" value="claro" onchange="changeColor(this)"> Claro
         </label>
     </div>
-    
-    <div id="output" contenteditable="true"></div>
     
     <script>
         
